@@ -1,7 +1,6 @@
 {
     "name": "chriss/yiiusers",
     "description": "Yii 2 Users Demo Application",
-    "type": "yii2-extension",
     "repositories": [
         {
             "type": "git",
