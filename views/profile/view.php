@@ -8,6 +8,8 @@ use yii\widgets\DetailView;
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = $this->title;
+
+echo $this->context->renderPartial('../common/_notifications');
 ?>
 <div class="profile-view">
 

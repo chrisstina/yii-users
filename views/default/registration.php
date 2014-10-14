@@ -2,8 +2,12 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$form = ActiveForm::begin(array('options' => array('class' => 'form-horizontal')));
+$this->title = 'User registration';
+$this->params['breadcrumbs'][] = 'Registation form';
 
+echo $this->context->renderPartial('../common/_notifications');
+
+$form = ActiveForm::begin(array('options' => array('class' => 'form-horizontal')));
 echo $form->field($user, 'email')->textInput();
 echo $form->field($user, 'password')->passwordInput();
 echo $form->field($user, 'password_confirm')->passwordInput();
