@@ -33,9 +33,6 @@ class DefaultController extends Controller
                     if ($user->save(false))
                     {
                         $user->link('profile', $profile);
-//                        $profile->uid = $user->id;
-//                        $user->populateRelation('profile', $profile);
-//                        $profile->save(false);
                         Yii::$app->session->setFlash('success',
                             'Activation code is sent'
                         );
