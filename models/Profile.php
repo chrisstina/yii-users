@@ -5,7 +5,7 @@ namespace app\modules\yiiusers\models;
 use \yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "profile".
+ * Profile model is to store user personal data
  *
  * @property integer $id
  * @property integer $uid
