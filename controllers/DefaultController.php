@@ -1,11 +1,11 @@
 <?php
 
-namespace app\modules\yiiusers\controllers;
+namespace chriss\yiiusers\controllers;
 
-use app\modules\yiiusers\models\User;
-use app\modules\yiiusers\models\Profile;
-use app\modules\yiiusers\models\LoginForm;
-use app\modules\yiiusers\models\ActivationForm;
+use chriss\yiiusers\models\User;
+use chriss\yiiusers\models\Profile;
+use chriss\yiiusers\models\LoginForm;
+use chriss\yiiusers\models\ActivationForm;
 use yii\web\Controller;
 use Yii;
 

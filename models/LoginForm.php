@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\yiiusers\models;
+namespace chriss\yiiusers\models;
 
 /**
  * Module login form

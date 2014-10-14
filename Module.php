@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\yiiusers;
+namespace chriss\yiiusers;
 
 use Yii;
 
@@ -10,7 +10,7 @@ use Yii;
  */
 class Module extends \yii\base\Module
 {
-    public $controllerNamespace = 'app\modules\yiiusers\controllers';
+    public $controllerNamespace = 'chriss\yiiusers\controllers';
     
     /**
      * Does user need to confirm registration via email

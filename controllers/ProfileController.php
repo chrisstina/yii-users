@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\yiiusers\controllers;
+namespace chriss\yiiusers\controllers;
 
 use Yii;
-use app\modules\yiiusers\models\Profile;
+use chriss\yiiusers\models\Profile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 

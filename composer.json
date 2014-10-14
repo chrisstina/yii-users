@@ -1,6 +1,7 @@
 {
     "name": "chriss/yiiusers",
     "description": "Yii 2 Users Demo Application",
+    "type": "yii2-extension",
     "repositories": [
         {
             "type": "git",
@@ -13,5 +14,10 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*"
+    },
+     "autoload": {
+        "psr-4": {
+            "chriss\\yiiusers\\": ""
+        }
     }
 }

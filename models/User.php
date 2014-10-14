@@ -1,8 +1,8 @@
 <?php
 
-namespace app\modules\yiiusers\models;
+namespace chriss\yiiusers\models;
 
-use app\modules\yiiusers\components\UserNotificationService;
+use chriss\yiiusers\components\UserNotificationService;
 
 use \yii\db\ActiveRecord;
 use \yii\web\IdentityInterface;
