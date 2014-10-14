@@ -1,3 +1,4 @@
+<?php $this->title = 'YiiUser Module'; ?>
 <div class="yiiusers-default-index">
     <h1><?php echo  $this->context->action->uniqueId ?></h1>
     

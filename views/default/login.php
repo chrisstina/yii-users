@@ -3,6 +3,8 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
+$this->title = 'Login';
+
 $form = ActiveForm::begin();
 echo $form->field($model, 'username');
 echo $form->field($model, 'password')->passwordInput();?>

@@ -2,19 +2,15 @@
 
 namespace app\modules\yiiusers\models;
 
-use yii\base\Model;
-
 /**
  * Module login form
  *
  * @author chriss
  */
-class LoginForm extends Model
+class LoginForm extends UserForm
 {
     public $username;
     public $password;
-    
-    private $_user;
 
     /**
      * @inheritdoc
@@ -40,19 +36,10 @@ class LoginForm extends Model
     
     public function validatePassword($attribute, $params)
     {
-        $user = $this->getUser();
+        $user = $this->getActiveUser();
         if ( ! $user || ! $user->validatePassword($this->$attribute))
         {
             $this->addError($attribute, 'Invalid password');
         }
     }
-    
-    public function getUser()
-    {
-        if ($this->_user === null)
-            $this->_user = User::findByUsername($this->username);
-        
-        return $this->_user;
-    }
-
 }

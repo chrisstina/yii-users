@@ -5,6 +5,7 @@ namespace app\modules\yiiusers\controllers;
 use app\modules\yiiusers\models\User;
 use app\modules\yiiusers\models\Profile;
 use app\modules\yiiusers\models\LoginForm;
+use app\modules\yiiusers\models\ActivationForm;
 use yii\web\Controller;
 use Yii;
 
@@ -68,13 +69,13 @@ class DefaultController extends Controller
         $user = new User();
         $user->email = Yii::$app->request->get('email');
         $user->activation_code = Yii::$app->request->get('code');
-        if ($ativatedUser = $user->activate())
+        if ($aсtivatedUser = $user->activate())
         {
             Yii::$app->session->setFlash('success', 
                 'You have successfully activated ' . $user->email . ' account'
             );
 
-            $ativatedUser->login();
+            $aсtivatedUser->login();
             return $this->goToProfile();
         }
         else
@@ -87,9 +88,35 @@ class DefaultController extends Controller
         echo $this->render('activation', array('model' => $user));
     }
     
-    public function actionResendActivationCode()
+    public function actionResend()
     {
+        if ( ! Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         
+        $model = new ActivationForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+            $user = $model->getUser();
+            if ($user && ! $user->is_active)
+            {
+                $user->sendActivationCode();
+                Yii::$app->session->setFlash('success', 
+                            'Activation code is sent to ' . $user->email
+                    );
+                return $this->goHome();
+            }
+            else 
+            {
+                Yii::$app->session->setFlash('danger',
+                    'User not found or is already activated.'
+                );
+            }
+            
+        }
+        
+        echo $this->render('activation', array('model' => $model));
     }
     
     public function actionLogin()

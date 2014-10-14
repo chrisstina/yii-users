@@ -2,19 +2,15 @@
 
 namespace app\modules\yiiusers\models;
 
-use yii\base\Model;
-
 /**
- * Module login form
+ * Form for activation code request
  *
  * @author chriss
  */
-class ActivationForm extends Model
+class ActivationForm extends UserForm
 {
     public $username;
     
-    private $_user;
-
     /**
      * @inheritdoc
      */
@@ -22,7 +18,6 @@ class ActivationForm extends Model
     {
         return [
             [['username'], 'required'],
-            [['username'], 'hasValidCode'],
         ];
     }
 
@@ -35,26 +30,4 @@ class ActivationForm extends Model
             'username' => 'User email',
         ];
     }
-    
-    /**
-     * 
-     * @param type $attribute
-     * @param type $params
-     */
-    public function hasValidCode($attribute, $params)
-    {
-        if ( ! $this->getUser()->hasValidActivationCode())
-        {
-            $this->addError($attribute, 'Activation code expired');
-        }
-    }
-    
-    public function getUser()
-    {
-        if ($this->_user === null)
-            $this->_user = User::findByUsername($this->username);
-        
-        return $this->_user;
-    }
-
 }
