@@ -58,7 +58,7 @@ class DefaultController extends Controller
         if ($user->activate())
         {
             $user->login();
-            $this->redirect('profile');
+            $this->redirectToProfile();
         }
         else
         {
@@ -87,10 +87,15 @@ class DefaultController extends Controller
         {
             if ($model->getUser()->login())
             {
-                return $this->goBack();
+                $this->redirectToProfile();
             }
         }
         
         return $this->render('login', ['model' => $model]);
+    }
+    
+    protected function redirectToProfile()
+    {
+        $this->redirect(Yii::$app->urlManager->createUrl('/yiiusers/profile'));
     }
 }

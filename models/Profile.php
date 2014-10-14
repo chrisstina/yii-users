@@ -3,7 +3,6 @@
 namespace app\modules\yiiusers\models;
 
 use \yii\db\ActiveRecord;
-use Yii;
 
 /**
  * This is the model class for table "profile".
@@ -45,5 +44,10 @@ class Profile extends ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'uid'])->inverseOf('profile');
+    }
+    
+    public static function findByUserId($uid)
+    {
+        return self::findOne(['uid' => $uid]);
     }
 }
