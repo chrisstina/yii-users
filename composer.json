@@ -1,0 +1,22 @@
+{
+    "name": "chriss/yiiusers",
+    "description": "Yii 2 Users Demo Application",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/chrisstina/yii-users"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*"
+    }
+}
