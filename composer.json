@@ -7,7 +7,7 @@
             "url": "https://github.com/chrisstina/yii-users"
         }
     ],
-    "minimum-stability": "dev-master",
+    "minimum-stability": "RC",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
