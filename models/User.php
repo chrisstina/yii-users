@@ -192,6 +192,6 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function findByActivationCode()
     {
-        return static::find()->where(array('email' => $this->email, 'activation_code' => $this->activation_code, 'is_active' => 0))->one();
+        return static::findOne(['email' => $this->email, 'activation_code' => $this->activation_code, 'is_active' => 0]);
     }
 }

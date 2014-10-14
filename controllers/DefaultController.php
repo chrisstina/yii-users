@@ -68,13 +68,13 @@ class DefaultController extends Controller
         $user = new User();
         $user->email = Yii::$app->request->get('email');
         $user->activation_code = Yii::$app->request->get('code');
-        if ($user->activate())
+        if ($ativatedUser = $user->activate())
         {
             Yii::$app->session->setFlash('success', 
                 'You have successfully activated ' . $user->email . ' account'
             );
 
-            $user->login();
+            $ativatedUser->login();
             return $this->goToProfile();
         }
         else
