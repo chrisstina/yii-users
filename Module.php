@@ -42,7 +42,7 @@ class Module extends \yii\base\Module
         if ( ! isset($this->_mailer))
         {
             $this->_mailer = Yii::$app->getMailer();
-            $this->_mailer->viewPath = '@app/modules/yiiusers/views/mail';
+            $this->_mailer->viewPath = '@chriss/yiiusers/views/mail';
             $this->_mailer->messageConfig = ['from' => $this->addressFrom];
         }
         
