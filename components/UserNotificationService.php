@@ -17,7 +17,7 @@ class UserNotificationService extends Component
      * User who receives notifications
      * @var User
      */
-    private $_receiver;
+    private $_receiver = null;
     
     public function setReceiver($user)
     {
@@ -31,10 +31,12 @@ class UserNotificationService extends Component
      */
     public function sendActivationCode()
     {
-        return Yii::$app->getModule('yiiusers')->mailer
-            ->compose('activation-html', ['user' => $this->_receiver])
-            ->setTo($this->_receiver->email)
-            ->setSubject(Yii::$app->name . ' account activation')
-            ->send();
+        return ($this->_receiver !== null) ?
+            $this->module->mailer
+                ->compose('activation-html', ['user' => $this->_receiver])
+                ->setTo($this->_receiver->email)
+                ->setSubject(Yii::$app->name . ' account activation')
+                ->send() :
+            false;
     }
 }
